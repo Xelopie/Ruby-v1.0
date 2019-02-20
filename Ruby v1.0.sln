@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.421
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ruby v1.0", "Ruby v1.0\Ruby v1.0.csproj", "{85924F3D-ADA4-4BB7-BEE4-B7D9DA8D2E78}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ruby", "Ruby v1.0\Ruby.csproj", "{85924F3D-ADA4-4BB7-BEE4-B7D9DA8D2E78}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
