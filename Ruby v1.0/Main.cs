@@ -17,16 +17,13 @@ namespace Ruby
         private float updateInterval = 15f;
 
         private bool bESP = false;
-
-        private float playerUpdateInterval = 500f;
-        private float viewDistance = 1200f;
-
+        
         private Player localPlayer;
         private Vector3 camPos;
 
         private void Awake()
         {
-
+		
         }
 
         private void Start()
