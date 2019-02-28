@@ -11,10 +11,8 @@ namespace Ruby
     {
         public static void Init()
         {
-            new Main.Load();
+            new Main().Load();
         }
-
-        private static GameObject Load;
 
     }
 }

@@ -11,10 +11,7 @@ namespace Ruby
     public class Main : MonoBehaviour
     {
         private GameObject hGameObj;
-        private Player[] playerList;
-
-        private float nextUpdateTime;
-        private float updateInterval = 15f;
+        private IEnumerable<Player> playerList;
 
         private bool bESP = false;
         
@@ -35,7 +32,6 @@ namespace Ruby
         {
             playerList = null;
             localPlayer = null;
-            nextUpdateTime = 0f;
         }
 
         private void OnEnable()
@@ -53,23 +49,24 @@ namespace Ruby
             Clear();
         }
 
-        public void Load()
+		public void Load()
         {
             hGameObj = new GameObject();
             hGameObj.AddComponent<Main>();
             DontDestroyOnLoad(hGameObj);
         }
 
-        public void Unload()
+		public void Unload()
         {
             try
             {
                 Clear();
+				GC.Collect();
                 Destroy(hGameObj);
-                Destroy(hGameObj.GetComponent<Main>());
                 Destroy(this);
-                DestroyObject(this);
-            }
+				Resources.UnloadUnusedAssets();
+
+			}
             catch
             {
 
@@ -78,15 +75,22 @@ namespace Ruby
 
         private void Update()
         {
-            if (Input.GetKeyDown(KeyCode.End))
-            {
-                Unload();
-            }
+			try
+			{
+				if (Input.GetKeyDown(KeyCode.End))
+				{
+					Unload();
+				}
 
-            if (Input.GetKeyDown(KeyCode.F1))
-            {
-                bESP = !bESP;
-            }
+				if (Input.GetKeyDown(KeyCode.F1))
+				{
+					bESP = !bESP;
+				}
+			}
+			catch
+			{
+
+			}
         }
 
         private void UpdateLocalPlayer()
