@@ -9,10 +9,16 @@ namespace Ruby
 {
     class Loader
     {
-        public static void Init()
+		private static Main MainObj;
+        public static void Load()
         {
-            new Main().Load();
+			MainObj = new Main();
+			MainObj.Load();
         }
-
+		
+		public static void Unload()
+		{
+			MainObj.Unload();
+		}
     }
 }
