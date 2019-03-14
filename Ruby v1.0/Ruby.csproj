@@ -34,6 +34,18 @@
     <Reference Include="Assembly-CSharp">
       <HintPath>..\..\..\EFT\Assembly-CSharp.dll</HintPath>
     </Reference>
+    <Reference Include="EFTIsANoobGame">
+      <HintPath>..\..\..\EFT Library\EFTIsANoobGame.dll</HintPath>
+    </Reference>
+    <Reference Include="NoobEngine">
+      <HintPath>..\..\..\EFT Library\NoobEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="NoobEngineNetworking">
+      <HintPath>..\..\..\EFT Library\NoobEngineNetworking.dll</HintPath>
+    </Reference>
+    <Reference Include="NoobEngineUI">
+      <HintPath>..\..\..\EFT Library\NoobEngineUI.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
