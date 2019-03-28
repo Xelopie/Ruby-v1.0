@@ -76,6 +76,10 @@ namespace Ruby
 		private string strItem2 = "itemNameHere";
 		private string strItem3 = "itemNameHere";
 
+		private string strPlayerDistance;
+		private string strItemDistance;
+		private string strContainerDistance;
+
 		#endregion
 
 		private void Awake()
@@ -233,7 +237,8 @@ namespace Ruby
 			{
 				GUI.Label(new Rect(110f, 240f, 150f, 20f), "Players Distance");
 				playerDistance = GUI.HorizontalSlider(new Rect(280f, 245f, 120f, 20f), playerDistance, 0.0F, 1500.0F);
-				GUI.Label(new Rect(405, 240, 50, 20), playerDistance.ToString());
+				strPlayerDistance = GUI.TextField(new Rect(405, 240, 50, 20), playerDistance.ToString());
+				float.TryParse(strPlayerDistance, out playerDistance);
 
 				bShowCorpse = GUI.Toggle(new Rect(250, 220, 120, 20), bShowCorpse, "Show Corpses");
 			}
@@ -243,7 +248,8 @@ namespace Ruby
 			{
 				GUI.Label(new Rect(110f, 300f, 150f, 20f), "Items Distance");
 				itemDistance = GUI.HorizontalSlider(new Rect(280f, 305f, 120f, 20f), itemDistance, 0.0F, 1500.0F);
-				GUI.Label(new Rect(405, 300, 50, 20), itemDistance.ToString());
+				strItemDistance = GUI.TextField(new Rect(405, 300, 50, 20), itemDistance.ToString());
+				float.TryParse(strItemDistance, out itemDistance);
 
 				bItemFilter = GUI.Toggle(new Rect(250, 280, 120, 20), bItemFilter, "Item Filter");
 				if (bItemFilter)
@@ -296,7 +302,8 @@ namespace Ruby
 			{
 				GUI.Label(new Rect(110f, 360f, 150f, 20f), "Containers Distance");
 				containerDistance = GUI.HorizontalSlider(new Rect(280f, 365f, 120f, 20f), containerDistance, 0.0F, 1500.0F);
-				GUI.Label(new Rect(405, 360, 50, 20), containerDistance.ToString());
+				strContainerDistance = GUI.TextField(new Rect(405, 360, 50, 20), containerDistance.ToString());
+				float.TryParse(strContainerDistance, out containerDistance);
 			}
 
 
