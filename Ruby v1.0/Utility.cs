@@ -99,6 +99,7 @@ namespace Ruby
 			GUI.EndGroup();
 			GUIUtility.RotateAroundPivot(-pivot, lineStart);
 		}
+
 	}
 }
 
