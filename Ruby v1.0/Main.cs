@@ -24,12 +24,6 @@ namespace Ruby
 		private Vector3 localPlayerCamPos;
 		private Player localPlayer;
 
-		private bool bRuby = false;
-		private bool bMenu = false;
-		private bool bPlayer = false;
-		private bool bItem = false;
-		private bool bContainer = false;
-
 		private float playerUpdateInterval = 5f;
 		private float playerNextUpdate;
 		private float itemUpdateInterval = 30f;
@@ -49,9 +43,19 @@ namespace Ruby
 
 		private Vector2 scrollPosition = Vector2.zero;
 
+		#region Checkboxes
+		// Main switch
+		private bool bRuby = false;
+		// Menu
+		private bool bMenu = false;
+		// Main function
+		private bool bPlayer = false;
+		private bool bItem = false;
+		private bool bContainer = false;
+		// Advanced options
+		private bool bShowCorpse = false;
 		private bool bItemFilter = false;
-
-		/* List for items */
+		// Item catagory
 		private bool bItem_Barter = false;
 		private bool bItem_Loot = false;
 		private bool bItem_LabKey = false;
@@ -61,13 +65,15 @@ namespace Ruby
 		private bool bItem_Silencer = false;
 		private bool bItem_Scope = false;
 		private bool bItem_Money = false;
-
-		/* Textfield */
+		// Item textfield
 		private bool bStrItem1 = false;
-		private string strItem1 = "itemNameHere";
 		private bool bStrItem2 = false;
-		private string strItem2 = "itemNameHere";
 		private bool bStrItem3 = false;
+		#endregion
+
+		// Textfield
+		private string strItem1 = "itemNameHere";
+		private string strItem2 = "itemNameHere";
 		private string strItem3 = "itemNameHere";
 
 		#endregion
@@ -220,7 +226,7 @@ namespace Ruby
 			GUI.color = Color.white;
 			GUI.Label(new Rect(110f, 110f, 150f, 20f), "Settings: ");
 
-			bRuby = GUI.Toggle(new Rect(110f, 150f, 150f, 20f), bRuby, "SWITCH ON / OFF");
+			bRuby = GUI.Toggle(new Rect(110f, 150f, 150f, 20f), bRuby, "SWITCH ON/OFF");
 
 			bPlayer = GUI.Toggle(new Rect(110f, 220f, 120f, 20f), bPlayer, "Show Players");
 			if (bPlayer)
@@ -228,6 +234,8 @@ namespace Ruby
 				GUI.Label(new Rect(110f, 240f, 150f, 20f), "Players Distance");
 				playerDistance = GUI.HorizontalSlider(new Rect(280f, 245f, 120f, 20f), playerDistance, 0.0F, 1500.0F);
 				GUI.Label(new Rect(405, 240, 50, 20), playerDistance.ToString());
+
+				bShowCorpse = GUI.Toggle(new Rect(250, 220, 120, 20), bShowCorpse, "Show Corpses");
 			}
 
 			bItem = GUI.Toggle(new Rect(110f, 280f, 120f, 20f), bItem, "Show Items");
@@ -345,6 +353,9 @@ namespace Ruby
 					}
 					else
 					{
+						// If ShowCorpse is OFF
+						if (!bShowCorpse) continue;
+
 						var playerColor = Color.gray;
 						Utility.DrawBox(playerMainCoor.x - 10f, Screen.height - playerMainCoor.y, 20f, 5f, playerColor);
 					}
